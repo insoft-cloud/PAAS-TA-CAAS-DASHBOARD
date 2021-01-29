@@ -1,0 +1,67 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: caas-dashboard
+  freemarker:
+    template-loader-path: classpath:/templates/
+
+management:
+  security:
+    enabled: false
+
+logging:
+  level:
+    ROOT: INFO
+  path: classpath:logback-spring.xml
+  file: logs/application.log
+
+commonApi:
+  url: http://localhost:3334
+  authorization:
+    id: admin
+    password: PaaS-TA
+
+caasApi:
+  url: http://localhost:3333
+  authorization:
+    id: admin
+    password: PaaS-TA
+
+caas:
+  url: [master_api_url]:8443
+  cluster-name: "kubernetes" # DO NOT MODIFY
+
+roleSet:
+  administratorCode: RS0001
+  regularUserCode: RS0002
+  initUserCode: RS0003
+  administratorName: Administrator
+  regularUserName: Regular User
+  initUserName: Init User
+
+private:
+  registry:
+    imageName: 9abcbde8-d58a-44f9-adf6-10568c055de4.private-image-repository.paastanet.container-service.bosh:15001/registry:latest
+    url: [private_registry_url]
+
+cf:
+  uaa:
+    oauth:
+      info:
+        uri: https://uaa.[cf_domain]/userinfo
+      token:
+        check:
+          uri: https://uaa.[cf_domain]/check_token
+        access:
+          uri: https://uaa.[cf_domain]/oauth/token
+      logout:
+        url: https://uaa.[cf_domain]/logout
+      authorization:
+        uri: https://uaa.[cf_domain]/oauth/authorize
+      client:
+        id: caasclient
+        secret: clientsecret
+  api:
+    url: https://api.[cf_domain]
