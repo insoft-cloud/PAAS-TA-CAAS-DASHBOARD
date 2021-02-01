@@ -101,9 +101,6 @@
                 <div class="custom-access-title fa-pull-left">
                     <p>3. Cluster 등록</p>
                 </div>
-                <div class="custom-access-title-right fa-pull-right">
-                    <button type="button" class="btns colors4" onclick="return downloadCrtToken();">Download certificate file</button>
-                </div>
             </div>
             <div class="clearfix"></div>
             <div class="custom-access-contents-wrap">
@@ -112,7 +109,7 @@
                 </div>
                 <div class="custom-access-contents">
                     <div class="fa-pull-left" id="caasClusterForLinux">
-                        <p>kubectl config set-cluster \${CAAS_SERVICE_CLUSTER_NAME} --embed-certs=true --server=\${CAAS_SERVICE_CLUSTER_SERVER} --certificate-authority=[DOWNLOADED FILE PATH]</p>
+                        <p>kubectl config set-cluster \${CAAS_SERVICE_CLUSTER_NAME} --server=\${CAAS_SERVICE_CLUSTER_SERVER} --insecure-skip-tls-verify</p>
                     </div>
                     <div class="fa-pull-right">
                         <i class="fas fa-copy custom-access-copy-button" about="caasClusterForLinux"></i>
@@ -123,7 +120,7 @@
                 </div>
                 <div class="custom-access-contents">
                     <div class="fa-pull-left" id="caasClusterForWindows">
-                        <p>kubectl config set-cluster %CAAS_SERVICE_CLUSTER_NAME% --embed-certs=true --server=%CAAS_SERVICE_CLUSTER_SERVER% --certificate-authority=[DOWNLOADED FILE PATH]</p>
+                        <p>kubectl config set-cluster %CAAS_SERVICE_CLUSTER_NAME% --server=%CAAS_SERVICE_CLUSTER_SERVER% --insecure-skip-tls-verify</p>
                     </div>
                     <div class="fa-pull-right">
                         <i class="fas fa-copy custom-access-copy-button" about="caasClusterForWindows"></i>
